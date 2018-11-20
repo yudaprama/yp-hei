@@ -1,9 +1,9 @@
 /**
- * Performs all possible subsets of set (power set).
+ * Performs all possible subsets of set (power).
  * @param {Array|String} arr - The set of elements.
  * @returns {Generator} yields each subset as an array
  */
-export function* powerSet(arr) {
+export function* power(arr) {
 	let len = arr.length;
 	let data = [];
 	yield* powerUtil(0, 0);
@@ -14,6 +14,31 @@ export function* powerSet(arr) {
 		for (let i = start; i < len; i++) {
 			data[index] = arr[i];
 			yield* powerUtil(i + 1, index + 1)
+		}
+	}
+}
+
+/**
+ * Performs all permutations of a set.
+ * @param {Array|String} arr - The set of elements.
+ * @param {Number} [size=arr.length] - Number of elements to choose from the set.
+ * @returns {Generator} yields each permutation as an array
+ */
+export function* permutation(arr, size = arr.length) {
+	let len = arr.length;
+	if (size === len) return yield* heapsAlgorithm(arr);
+	let data = [];
+	let indices = [];
+	yield* permutationUtil(0);
+	function* permutationUtil(index) {
+		if (index === size) return yield data;
+		for (let i = 0; i < len; i++) {
+			if (!indices[i]) {
+				indices[i] = true;
+				data[index] = arr[i];
+				yield *permutationUtil(index + 1);
+				indices[i] = false
+			}
 		}
 	}
 }
@@ -41,8 +66,26 @@ export function getPrimes(max) {
  * @param {Array} array
  * @returns {Number}
  */
-function sum(array) {
+export function sum(array) {
 	return array.reduce((a, b) => a + b, 0);
+}
+
+/**
+ * Swaps two array elements.
+ * @param arr
+ * @param i
+ * @param j
+ * @returns {Array}
+ */
+function swap(arr, i, j) {
+	let len = arr.length;
+	if (i >= len || j >= len) {
+		console.warn('Swapping an array\'s elements past its length.')
+	}
+	let temp = arr[j];
+	arr[j] = arr[i];
+	arr[i] = temp;
+	return arr
 }
 
 /**
