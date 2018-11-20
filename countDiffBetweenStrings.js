@@ -1,7 +1,7 @@
 let arr = [];
 let charCode = [];
 
-export default function getDiffBetweenStrings(recruiterName, candidateName) {
+export default function countDiffBetweenStrings(recruiterName, candidateName) {
 	if (recruiterName === candidateName) {
 		return 0;
 	}

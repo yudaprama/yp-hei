@@ -9,7 +9,7 @@ import {
 	power,
 	sum
 } from "./utils";
-import getDiffBetweenStrings from "./getDiffBetweenStrings";
+import countDiffBetweenStrings from "./countDiffBetweenStrings";
 
 /**
  * Answer to question 5
@@ -88,5 +88,5 @@ export function Question8(clothes) {
  * @returns {number|*}
  */
 export function Question9(recruiterName, candidateName) {
-	return getDiffBetweenStrings(recruiterName, candidateName)
+	return countDiffBetweenStrings(recruiterName, candidateName) <= 10
 }
