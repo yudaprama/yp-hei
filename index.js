@@ -88,5 +88,9 @@ export function Question8(clothes) {
  * @returns {number|*}
  */
 export function Question9(recruiterName, candidateName) {
-	return countDiffBetweenStrings(recruiterName, candidateName) <= 10
+	const steps = countDiffBetweenStrings(recruiterName, candidateName);
+	return {
+		steps,
+		isQualified: steps <= 10
+	}
 }
