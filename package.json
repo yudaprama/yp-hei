@@ -4,13 +4,5 @@
   "main": "index.js",
   "repository": "https://github.com/yudaprama/yp-hei.git",
   "author": "yuda <yudapramad@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "babel-version": "babel --version",
-    "test": "babel test.js"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6"
-  }
+  "license": "MIT"
 }
