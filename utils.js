@@ -106,6 +106,15 @@ function swap(arr, i, j) {
 }
 
 /**
+ * Checks uniqueness of values within array
+ * @param {array} array
+ * @returns {boolean}
+ */
+export function isUnique(array) {
+	return (new Set(array)).size === array.length;
+}
+
+/**
  * Performing heap algorithm
  * @param {Array|String} arr - The set of elements.
  */
@@ -143,4 +152,9 @@ export function nextChar(character) {
  */
 export function isArrayUnique(array1, array2) {
 	return array1.length === array2.length && array1.sort().every((value, index) => value === array2.sort()[index]);
+}
+
+
+export function createArrayOfNumberFromN(N) {
+	return [...Array(N+1).keys()].slice(1);
 }

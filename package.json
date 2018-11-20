@@ -4,5 +4,6 @@
   "main": "index.js",
   "repository": "https://github.com/yudaprama/yp-hei.git",
   "author": "yuda <yudapramad@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {}
 }
