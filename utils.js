@@ -17,3 +17,21 @@ export function* powerSet(arr) {
 		}
 	}
 }
+
+/**
+ * Generate array of prime number based on max number
+ * @param {Number} max
+ * @returns {Array}
+ */
+export function getPrimes(max) {
+	let filter = [], i, j, primes = [];
+	for (i = 2; i <= max; ++i) {
+		if (!filter[i]) {
+			primes.push(i);
+			for (j = i << 1; j <= max; j += i) {
+				filter[j] = true;
+			}
+		}
+	}
+	return primes;
+}
