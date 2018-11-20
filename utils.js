@@ -20,7 +20,7 @@ export function* power(arr) {
 
 /**
  * Performs all permutations of a set.
- * @param {Array|String} arr - The set of elements.
+ * @param {Array} arr - The set of elements.
  * @param {Number} [size=arr.length] - Number of elements to choose from the set.
  * @returns {Generator} yields each permutation as an array
  */
@@ -39,6 +39,23 @@ export function* permutation(arr, size = arr.length) {
 				yield *permutationUtil(index + 1);
 				indices[i] = false
 			}
+		}
+	}
+}
+
+/**
+ * Performs the cartesian product of sets.
+ * @param {...array} sets of n elements.
+ * @returns {Generator} yields each product as an array
+ */
+export function* cartesian(...sets) {
+	let data = [];
+	yield* cartesianUtil(0);
+	function* cartesianUtil(index) {
+		if (index === sets.length) return yield data;
+		for (let i = 0; i < sets[index].length; i++) {
+			data[index] = sets[index][i];
+			yield* cartesianUtil(index + 1)
 		}
 	}
 }
@@ -107,4 +124,23 @@ function* heapsAlgorithm(arr) {
 			swap(arr, index, j)
 		}
 	}
+}
+
+/**
+ * Get next character
+ * @param {string} character
+ * @returns {string}
+ */
+export function nextChar(character) {
+	return String.fromCharCode(character.charCodeAt(0) + 1);
+}
+
+/**
+ * Check uniqueness of two arrays
+ * @param {array} array1
+ * @param {array} array2
+ * @returns {boolean}
+ */
+export function isArrayUnique(array1, array2) {
+	return array1.length === array2.length && array1.sort().every((value, index) => value === array2.sort()[index]);
 }
