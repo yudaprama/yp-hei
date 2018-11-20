@@ -19,7 +19,7 @@ export function* powerSet(arr) {
 }
 
 /**
- * Generate array of prime number based on max number
+ * Generates array of prime number based on max number
  * @param {Number} max
  * @returns {Array}
  */
@@ -34,4 +34,34 @@ export function getPrimes(max) {
 		}
 	}
 	return primes;
+}
+
+/**
+ * Sums array of number
+ * @param {Array} array
+ * @returns {Number}
+ */
+function sum(array) {
+	return array.reduce((a, b) => a + b, 0);
+}
+
+/**
+ * Performing heap algorithm
+ * @param {Array|String} arr - The set of elements.
+ */
+function* heapsAlgorithm(arr) {
+	let size = arr.length;
+	if (typeof arr === 'string') {
+		arr = arr.split('')
+	}
+	yield* heapsUtil(0);
+	function* heapsUtil(index) {
+		if (index === size) return yield arr;
+
+		for (let j = index; j < size; j++) {
+			swap(arr, index, j);
+			yield* heapsUtil(index + 1);
+			swap(arr, index, j)
+		}
+	}
 }
