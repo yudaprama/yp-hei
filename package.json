@@ -1,0 +1,8 @@
+{
+  "name": "yp-hei",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yudaprama/yp-hei.git",
+  "author": "yuda <yudapramad@gmail.com>",
+  "license": "MIT"
+}
