@@ -38,6 +38,7 @@ export function Question6(N) {
 
 /**
  * Answer to question 7
+ * @constructor {number} N - number of room
  */
 export class Question7 {
 	constructor(N) {
@@ -69,7 +70,7 @@ export class Question7 {
 
 /**
  * Answer to question 8
- * @param {array} clothes
+ * @param {Array} clothes
  * @return {boolean}
  */
 export function Question8(clothes) {
