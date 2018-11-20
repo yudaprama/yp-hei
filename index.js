@@ -9,6 +9,7 @@ import {
 	power,
 	sum
 } from "./utils";
+import getDiffBetweenStrings from "./getDiffBetweenStrings";
 
 /**
  * Answer to question 5
@@ -78,4 +79,14 @@ export function Question8(clothes) {
 		if (isUnique(prod)) return true;
 	}
 	return false;
+}
+
+/**
+ * Answer to question 9
+ * @param {string} recruiterName
+ * @param {string} candidateName
+ * @returns {number|*}
+ */
+export function Question9(recruiterName, candidateName) {
+	return getDiffBetweenStrings(recruiterName, candidateName)
 }
